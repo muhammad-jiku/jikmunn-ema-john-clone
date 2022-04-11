@@ -2,61 +2,89 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-const Shipment = () => {
-    const [user] = useAuthState(auth);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [address, setAddress] = useState('');
-    const [phone, setPhone] = useState('');
-    const [error, setError] = useState('');
-    // const navigate = useNavigate();
+function Shipment() {
+  const [displayName, setDisplayName] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [contactNumber, setContactNumber] = useState('');
+  const [error, setError] = useState('');
 
-    const handleNameBlur = event =>{
-        setName(event.target.value);
-    }
+  const [user] = useAuthState(auth);
 
-    const handleAddressBlur = event =>{
-        setAddress(event.target.value);
-    }
+  const handleDisplayNameBlur = (e) => {
+    setDisplayName(e.target.value);
+  };
 
-    const handlePhoneBlur = event =>{
-        setPhone(event.target.value);
-    }
+  const handleAddressBlur = (e) => {
+    setAddress(e.target.value);
+  };
 
-    const handleCreateUser = event =>{
-        event.preventDefault();
-        const shipping = {name, email, address, phone};
-        console.log(shipping);
-    }
+  const handleContactNumberBlur = (e) => {
+    setContactNumber(e.target.value);
+  };
 
-    return (
-        <div className='form-container'>
-            <div>
-                <h2 className='form-title'>Your Shipping Info</h2>
-                <form onSubmit={handleCreateUser}>
-                    <div className="input-group">
-                        <label htmlFor="name">Your Name</label>
-                        <input onBlur={handleNameBlur} type="text" name="name" id="" required/>
-                    </div>
-                    <div className="input-group">
-                        <label htmlFor="email">Your Email</label>
-                        <input value={user?.email} readOnly type="email" name="email" id="" required/>
-                    </div>
-                    <div className="input-group">
-                        <label htmlFor="password">Address</label>
-                        <input onBlur={handleAddressBlur} type="text" name="address" id=""  required/>
-                    </div>
-                    <div className="input-group">
-                        <label htmlFor="phone">Phone Number</label>
-                        <input onBlur={handlePhoneBlur} type="text" name="phone" id="" required/>
-                    </div>
-                    <p style={{color: 'red'}}>{error}</p>
-                    <input className='form-submit' type="submit" value="Add Shipping"  required/>
-                </form>
-                
-            </div>
-        </div>
-    );
-};
+  const handleCreateUser = (e) => {
+    e.preventDefault();
+
+    const shipping = { displayName, email, address, contactNumber };
+    console.log(shipping);
+    // setEmail('');
+    setAddress('');
+    setContactNumber('');
+  };
+
+  return (
+    <div className="formContainer">
+      <div>
+        <h1 className="formTitle">Shippment Details</h1>
+        <form onSubmit={handleCreateUser}>
+          <div className="inputGroup">
+            <label htmlFor="displayName">Name</label>
+            <input
+              type="text"
+              name="displayName"
+              id="displayName"
+              onBlur={handleDisplayNameBlur}
+              required
+            />
+          </div>
+          <div className="inputGroup">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={user?.email}
+              readOnly
+              required
+            />
+          </div>
+          <div className="inputGroup">
+            <label htmlFor="address">Address</label>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              onBlur={handleAddressBlur}
+              required
+            />
+          </div>
+          <div className="inputGroup">
+            <label htmlFor="contactNumber">Contact Number</label>
+            <input
+              type="tel"
+              name="contactNumber"
+              id="contactNumber"
+              onBlur={handleContactNumberBlur}
+              required
+            />
+          </div>
+          <input className="formSubmit" type="submit" value="Add Shipping" />
+        </form>
+        <p style={{ color: 'red' }}>{error}</p>
+      </div>
+    </div>
+  );
+}
 
 export default Shipment;

@@ -1,52 +1,118 @@
-.form-container {
-    width: 600px;
-    margin: 0 auto;
+.formContainer{
+    width: 500px;
+    background: #FFFFFF;
     border: 1px solid #95A0A7;
     box-sizing: border-box;
     border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 35px;
     display: flex;
     justify-content: center;
 }
 
-.form-title {
-    font-size: 35px;
-    color: #2A414F;
+.formTitle{
+    font-family: 'Lato';
+    font-style: normal;
     font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    /* identical to box height */
+    letter-spacing: 0.0025em;
+    color: #2A414F;
+    text-align: center;
 }
 
-.input-group{
+.inputGroup{
     margin-bottom: 20px;
 }
 
-.input-group label {
+.inputGroup > label{
     display: block;
-    margin-left: 5px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.0015em;
+    color: #2A414F;
+    margin-left: 45px;
 }
 
-.input-group input {
+.inputGroup > input{
+    border: 1px solid #95A0A7;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 415px;
+    height: 55px;
+    font-size: 18px;
+    margin-left: 45px;
+}
+
+.formSubmit{
+    width: 415px;
+    height: 55px;
+    text-align: center;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+    color: #0E161A;
+    background-color: rgba(255, 153, 0, 0.3);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 45px;
+}
+
+.formSubmit:hover{
+    background-color: rgba(255, 153, 0, 0.8);
+}
+
+.newAccount{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    /* identical to box height */
+    letter-spacing: 0.0025em;
+    text-align: center;
+}
+
+.formLink{
+    color: rgba(255, 153, 0, 1);
+}
+
+.orSection {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.orSection > p{
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+    color: #95A0A7;
+}
+
+.orSection > hr{
+    width: 145px;
+    height: 0px;
+    border: 1px solid #95A0A7;
+}
+
+.socialIcon > img {
     width: 415px;
     height: 55px;
     border: 1px solid #95A0A7;
     box-sizing: border-box;
     border-radius: 5px;
-    font-size: 24px;
-    padding-left: 5px;
-}
-
-.form-submit{
-    width: 415px;
-    height: 55px;
-    background-color: rgba(255, 153, 0, 0.3);
-    border-radius: 5px;
-    border: none;
-    font-size: 20px;
+    margin: 10px 45px ;
     cursor: pointer;
-}
-.form-submit:hover{
-    background-color: rgba(255, 153, 0, 0.5);
-}
-
-.form-link{
-    color: #FF9900;
-    text-decoration: none;
 }
